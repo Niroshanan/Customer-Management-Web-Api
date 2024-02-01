@@ -1,4 +1,5 @@
 ﻿using CustomerApi.Application.DTOs;
+using CustomerApi.Application.Helpers;
 using CustomerApi.Application.Services.Interfaces;
 using CustomerApi.Data.Entities;
 using CustomerApi.Data.Repositories.Interfaces;
@@ -46,6 +47,13 @@ namespace CustomerApi.Application.Services.Implementations
         public Task<bool> DeleteCustomerAsync(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<double> GetDistanceAsync(int id, CordinateDto cordinateDto)
+        {
+            Customer customer = _customerRepository.GetCustomerAsync(id).Result;
+            double distance = DistanceCalculator.CalculateDistance(customer,cordinateDto);
+            return Task.FromResult<double>(distance);
         }
     }
 }

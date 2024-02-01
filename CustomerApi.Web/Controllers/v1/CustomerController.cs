@@ -57,22 +57,22 @@ namespace CustomerApi.Web.Controllers.v1
 
         //update customerEditDto using id
         [HttpPut]
-        [Route("UpdateCustomer/{id}")]
-        public async Task<IActionResult> UpdateCustomer(int id, CustomerEditDto customerEditDto)
+        [Route("UpdateCustomer")]
+        public async Task<IActionResult> UpdateCustomer(CustomerEditDto customerEditDto)
         {
             try
             {
-                var customerToUpdate = await _customerServices.GetCustomerAsync(id);
+                var customerToUpdate = await _customerServices.GetCustomerAsync(customerEditDto.CustomerId);
                 if (customerToUpdate == null)
                 {
-                    return NotFound($"Error :Customer with id = {id} not found");
+                    return NotFound($"Error :Customer with id = {customerEditDto.CustomerId} not found");
                 }
-                bool res = await _customerServices.UpdateCustomerAsync(id, customerEditDto);
+                bool res = await _customerServices.UpdateCustomerAsync(customerEditDto.CustomerId, customerEditDto);
                 if (!res)
                 {
-                    return BadRequest($"Error :Customer with id = {id} not updated");
+                    return BadRequest($"Error :Customer with id = {customerEditDto.CustomerId} not updated");
                 }
-                return Ok($"Customer with Id = {id} updated successfully");
+                return Ok($"Customer with Id = {customerEditDto.CustomerId} updated successfully");
             }
             catch (Exception ex)
             {
@@ -80,6 +80,25 @@ namespace CustomerApi.Web.Controllers.v1
             }
         }
 
-
+        //getdistance of a customer using id, latitude and longitude as parameters
+        [HttpGet]
+        [Route("GetDistance/{id}")]
+        public async Task<IActionResult> GetDistance(int id, [FromQuery] CordinateDto cordinateDto)
+        {
+            try
+            {
+                var customer = await _customerServices.GetCustomerAsync(id);
+                if (customer == null)
+                {
+                    return NotFound($"Error :Customer with id = {id} not found");
+                }
+                double distance = await _customerServices.GetDistanceAsync(id, cordinateDto);
+                return Ok($"Distance of customer with id = {id} from given latitude and longitude is {distance:F2} km");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database. {ex.Message} ");
+            }
+        }
     }
 }

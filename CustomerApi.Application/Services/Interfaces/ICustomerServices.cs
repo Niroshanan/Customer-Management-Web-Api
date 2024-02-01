@@ -14,5 +14,6 @@ namespace CustomerApi.Application.Services.Interfaces
         Task<Customer> GetCustomerAsync(int id);
         Task<bool> UpdateCustomerAsync(int id,CustomerEditDto customer);
         Task<bool> DeleteCustomerAsync(int id);
+        Task<double> GetDistanceAsync(int id, CordinateDto cordinateDto);
     }
 }

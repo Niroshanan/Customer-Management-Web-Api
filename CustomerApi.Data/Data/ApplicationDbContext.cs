@@ -32,7 +32,7 @@ namespace CustomerApi.Data.Data
                     modelBuilder.Entity<Customer>().HasData(
                         new
                         {
-                            Customerid = customerId,
+                            CustomerId = customerId,
                             _Id = customer._Id,
                             Index = customer.Index,
                             Age = customer.Age,

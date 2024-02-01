@@ -32,7 +32,8 @@ namespace CustomerApi.Data.Repositories.Implementation
 
         public Task<bool> UpdateCustomerAsync(Customer customer)
         {
-            throw new NotImplementedException();
+            _db.Customers.Update(customer);
+            return Task.FromResult<bool>(_db.SaveChanges() > 0);
         }
         public Task<bool> DeleteCustomerAsync(int id)
         {

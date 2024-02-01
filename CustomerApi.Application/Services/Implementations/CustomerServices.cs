@@ -1,4 +1,5 @@
-﻿using CustomerApi.Application.Services.Interfaces;
+﻿using CustomerApi.Application.DTOs;
+using CustomerApi.Application.Services.Interfaces;
 using CustomerApi.Data.Entities;
 using CustomerApi.Data.Repositories.Interfaces;
 using System;
@@ -24,9 +25,23 @@ namespace CustomerApi.Application.Services.Implementations
             return _customerRepository.GetCustomerAsync(id);
         }
 
-        public Task<bool> UpdateCustomerAsync(Customer customer)
+        public Task<bool> UpdateCustomerAsync(int id,CustomerEditDto customerEditDto)
         {
-            throw new NotImplementedException();
+            Customer customerToUpdate = _customerRepository.GetCustomerAsync(id).Result;
+            if(customerEditDto.Name != null)
+            {
+                customerToUpdate.Name = customerEditDto.Name;
+            }
+            if(customerEditDto.Email != null)
+            {
+                customerToUpdate.Email = customerEditDto.Email;
+            }
+            if(customerEditDto.Phone != null)
+            {
+                customerToUpdate.Phone = customerEditDto.Phone;
+            }
+            return _customerRepository.UpdateCustomerAsync(customerToUpdate);
+
         }
         public Task<bool> DeleteCustomerAsync(int id)
         {

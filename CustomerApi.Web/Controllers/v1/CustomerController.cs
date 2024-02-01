@@ -1,4 +1,5 @@
-﻿using CustomerApi.Application.Services.Interfaces;
+﻿using CustomerApi.Application.DTOs;
+using CustomerApi.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,8 @@ namespace CustomerApi.Web.Controllers.v1
         }
         //get all customers
         [HttpGet]
-        public async Task<IActionResult> GetCustomers()
+        [Route("GetAllCustomers")]
+        public async Task<IActionResult> GetAllCustomers()
         {
             try
             {
@@ -27,14 +29,15 @@ namespace CustomerApi.Web.Controllers.v1
                 }
                 return Ok(customers);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database. {ex.Message}");
             }
         }
 
         //get customer by id
-        [HttpGet("{id:int}")]
+        [HttpGet]
+        [Route("GetCustomer/{id}")]
         public async Task<IActionResult> GetCustomer(int id)
         {
             try
@@ -42,13 +45,38 @@ namespace CustomerApi.Web.Controllers.v1
                 var customer = await _customerServices.GetCustomerAsync(id);
                 if (customer == null)
                 {
-                    return NotFound($"Customer with id = {id} not found");
+                    return NotFound($"Error :Customer with id = {id} not found");
                 }
                 return Ok(customer);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database. {ex.Message} ");
+            }
+        }
+
+        //update customerEditDto using id
+        [HttpPut]
+        [Route("UpdateCustomer/{id}")]
+        public async Task<IActionResult> UpdateCustomer(int id, CustomerEditDto customerEditDto)
+        {
+            try
+            {
+                var customerToUpdate = await _customerServices.GetCustomerAsync(id);
+                if (customerToUpdate == null)
+                {
+                    return NotFound($"Error :Customer with id = {id} not found");
+                }
+                bool res = await _customerServices.UpdateCustomerAsync(id, customerEditDto);
+                if (!res)
+                {
+                    return BadRequest($"Error :Customer with id = {id} not updated");
+                }
+                return Ok($"Customer with Id = {id} updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error updating data. {ex.Message}");
             }
         }
 

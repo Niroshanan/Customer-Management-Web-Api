@@ -1,4 +1,5 @@
-﻿using CustomerApi.Data.Entities;
+﻿using CustomerApi.Application.DTOs;
+using CustomerApi.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace CustomerApi.Application.Services.Interfaces
     {
         Task<IEnumerable<Customer>> GetCustomersAsync();
         Task<Customer> GetCustomerAsync(int id);
-        Task<bool> UpdateCustomerAsync(Customer customer);
+        Task<bool> UpdateCustomerAsync(int id,CustomerEditDto customer);
         Task<bool> DeleteCustomerAsync(int id);
     }
 }

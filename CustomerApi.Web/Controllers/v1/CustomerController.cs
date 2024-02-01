@@ -100,5 +100,48 @@ namespace CustomerApi.Web.Controllers.v1
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database. {ex.Message} ");
             }
         }
+
+        //Search customers for a given string
+        [HttpGet]
+        [Route("SearchCustomer/{searchString}")]
+        public async Task<IActionResult> SearchCustomer(string searchString)
+        {
+            try
+            {
+
+                var searchedCustomers = await _customerServices.SearchCustomerAsync(searchString);
+                if (searchedCustomers == null)
+                {
+                    return NotFound();
+                }
+                return Ok(searchedCustomers);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database. {ex.Message}");
+            }
+        }
+
+
+        //Get customer list grouped by Zip code
+        [HttpGet]
+        [Route("GetCustomerListByZipCode")]
+        public async Task<IActionResult> GetCustomerListByZipCode()
+        {
+            try
+            {
+                var customers = await _customerServices.GetCustomerListByZipCodeAsync();
+                if (customers == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(customers);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database. {ex.Message}");
+            }
+        }
     }
 }

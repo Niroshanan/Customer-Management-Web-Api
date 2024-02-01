@@ -13,5 +13,7 @@ namespace CustomerApi.Data.Repositories.Interfaces
         Task<Customer> GetCustomerAsync(int id);
         Task<bool> UpdateCustomerAsync(Customer customer);
         Task<bool> DeleteCustomerAsync(int id);
+
+        Task<IEnumerable<IGrouping<int, Customer>>> GetCustomerListByZipCodeAsync();
     }
 }

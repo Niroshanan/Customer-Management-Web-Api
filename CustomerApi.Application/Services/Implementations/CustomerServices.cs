@@ -17,6 +17,8 @@ namespace CustomerApi.Application.Services.Implementations
         public CustomerServices(ICustomerRepository customerRepository) { 
             _customerRepository = customerRepository;
         }
+
+
         public Task<IEnumerable<Customer>> GetCustomersAsync()
         {
             return _customerRepository.GetCustomersAsync();
@@ -54,6 +56,39 @@ namespace CustomerApi.Application.Services.Implementations
             Customer customer = _customerRepository.GetCustomerAsync(id).Result;
             double distance = DistanceCalculator.CalculateDistance(customer,cordinateDto);
             return Task.FromResult<double>(distance);
+        }
+
+        public Task<IEnumerable<Customer>> SearchCustomerAsync(string searchStr)
+        {
+            List<Customer> searchedCustomers = _customerRepository.GetCustomersAsync().Result
+                .Where(c => 
+                c.EyeColor.Contains(searchStr)||
+                c.Name.Contains(searchStr)||
+                c.Gender.Contains(searchStr)||
+                c.Company.Contains(searchStr) ||
+                c.Email.Contains(searchStr) ||
+                c.Phone.Contains(searchStr)||
+                c.Address.Street.Contains(searchStr)||
+                c.Address.City.Contains(searchStr)||
+                c.Address.State.Contains(searchStr)||
+                c.Address.Zipcode.ToString().Contains(searchStr)||
+                c.About.Contains(searchStr)||
+                c.Tags.Contains(searchStr)                
+                )
+                .ToList();
+            return Task.FromResult<IEnumerable<Customer>>(searchedCustomers);
+        }
+
+        public Task<IEnumerable<CustomerGroupDto>> GetCustomerListByZipCodeAsync()
+        {
+            var customersListByZipCode = _customerRepository.GetCustomerListByZipCodeAsync();
+            var result = customersListByZipCode.Result.Select(group => new CustomerGroupDto
+            {
+                ZipCode = group.Key,
+                Customers = group.ToList()
+            });
+            return Task.FromResult<IEnumerable<CustomerGroupDto>>(result);
+            
         }
     }
 }

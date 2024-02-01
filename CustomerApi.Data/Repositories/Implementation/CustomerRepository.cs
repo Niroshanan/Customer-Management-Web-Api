@@ -20,7 +20,7 @@ namespace CustomerApi.Data.Repositories.Implementation
 
         public Task<IEnumerable<Customer>> GetCustomersAsync()
         {
-            List<Customer> customers = _db.Customers.ToList();
+            List<Customer> customers = _db.Customers.Include(c => c.Address).ToList();
             return Task.FromResult<IEnumerable<Customer>>(customers);
         }
 
@@ -38,6 +38,16 @@ namespace CustomerApi.Data.Repositories.Implementation
         public Task<bool> DeleteCustomerAsync(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<IGrouping<int, Customer>>> GetCustomerListByZipCodeAsync()
+        {
+            var customersGrouped = _db.Customers
+                .Include(c => c.Address)
+                .GroupBy(c => c.Address.Zipcode)
+                .AsEnumerable();
+
+            return Task.FromResult<IEnumerable<IGrouping<int, Customer>>>(customersGrouped);
         }
     }
 }

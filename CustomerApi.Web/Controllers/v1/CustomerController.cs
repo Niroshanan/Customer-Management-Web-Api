@@ -1,5 +1,6 @@
 ﻿using CustomerApi.Application.DTOs;
 using CustomerApi.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ namespace CustomerApi.Web.Controllers.v1
             _customerServices = customerServices;
         }
         //get all customers
+        [Authorize]
         [HttpGet]
         [Route("GetAllCustomers")]
         public async Task<IActionResult> GetAllCustomers()

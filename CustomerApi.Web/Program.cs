@@ -43,6 +43,10 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
 })
+    .AddCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+})
 .AddJwtBearer(options =>
 {
     options.SaveToken = true;
@@ -54,9 +58,9 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["JWT:ValidAudience"],
         ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
-        ValidateIssuerSigningKey = false
     };
 });
+
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 

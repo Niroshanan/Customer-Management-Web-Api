@@ -1,10 +1,11 @@
 ﻿using CustomerApi.Application.DTOs;
 using CustomerApi.Application.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerApi.Web.Controllers.v1
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -23,7 +24,7 @@ namespace CustomerApi.Web.Controllers.v1
             try
             {
                 var customers = await _customerServices.GetCustomersAsync();
-                if (customers == null)
+                if (customers.Count() == 0)
                 {
                     return NotFound();
                 }
@@ -110,7 +111,7 @@ namespace CustomerApi.Web.Controllers.v1
             {
 
                 var searchedCustomers = await _customerServices.SearchCustomerAsync(searchString);
-                if (searchedCustomers == null)
+                if (searchedCustomers.Count() == 0)
                 {
                     return NotFound();
                 }
@@ -131,11 +132,10 @@ namespace CustomerApi.Web.Controllers.v1
             try
             {
                 var customers = await _customerServices.GetCustomerListByZipCodeAsync();
-                if (customers == null)
+                if (customers.Count() == 0)
                 {
                     return NotFound();
                 }
-
                 return Ok(customers);
             }
             catch (Exception ex)

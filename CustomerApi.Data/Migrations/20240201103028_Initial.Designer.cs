@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerApi.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240201061208_Initial")]
+    [Migration("20240201103028_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -1152,11 +1152,11 @@ namespace CustomerApi.Data.Migrations
 
             modelBuilder.Entity("CustomerApi.Data.Entities.Customer", b =>
                 {
-                    b.Property<int>("Customerid")
+                    b.Property<int>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Customerid"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
 
                     b.Property<string>("About")
                         .IsRequired()
@@ -1223,14 +1223,14 @@ namespace CustomerApi.Data.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "_id");
 
-                    b.HasKey("Customerid");
+                    b.HasKey("CustomerId");
 
                     b.ToTable("Customers");
 
                     b.HasData(
                         new
                         {
-                            Customerid = 1,
+                            CustomerId = 1,
                             About = "Cillum elit officia minim amet. Incididunt nulla tempor ad dolore. Anim anim reprehenderit mollit occaecat irure laborum aute sint aute aliqua incididunt ad cillum id. Eu irure nulla sit officia eiusmod et anim consectetur exercitation velit.\r\n",
                             Age = 38,
                             Company = "SPORTAN",
@@ -1248,7 +1248,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 2,
+                            CustomerId = 2,
                             About = "Est duis officia irure fugiat aliqua pariatur cillum deserunt officia. Labore id esse magna culpa anim veniam nostrud. Consequat ad nisi ex Lorem pariatur id exercitation.\r\n",
                             Age = 27,
                             Company = "PERMADYNE",
@@ -1266,7 +1266,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 3,
+                            CustomerId = 3,
                             About = "Enim excepteur eu labore ea ipsum exercitation nostrud nulla ea. Sint minim voluptate nulla occaecat. Consequat reprehenderit incididunt do anim. Esse id voluptate nulla duis occaecat. Proident aute culpa nostrud velit minim adipisicing est ea consectetur deserunt laboris labore. Occaecat quis reprehenderit ex nulla dolore officia occaecat. Dolor laborum elit proident eiusmod tempor id ad veniam aliqua dolor non.\r\n",
                             Age = 23,
                             Company = "INCUBUS",
@@ -1284,7 +1284,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 4,
+                            CustomerId = 4,
                             About = "Incididunt commodo incididunt ex ad duis cillum eu proident labore qui. Nulla deserunt laboris ad consequat veniam do ea. Minim adipisicing cupidatat ea ullamco aliquip tempor irure laborum ex. Culpa labore veniam velit reprehenderit aliquip proident voluptate.\r\n",
                             Age = 33,
                             Company = "TECHADE",
@@ -1302,7 +1302,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 5,
+                            CustomerId = 5,
                             About = "Exercitation sit elit veniam ex laboris ad Lorem in incididunt. Occaecat aliquip occaecat dolor ex nulla velit ullamco deserunt. Elit fugiat est sint enim Lorem amet ullamco labore veniam ut enim nostrud.\r\n",
                             Age = 33,
                             Company = "CORMORAN",
@@ -1320,7 +1320,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 6,
+                            CustomerId = 6,
                             About = "Esse est excepteur in cillum quis pariatur aliqua exercitation. Cupidatat duis officia tempor ullamco culpa eiusmod commodo non ullamco magna. Est adipisicing sint amet dolor elit ipsum voluptate. Culpa laborum fugiat in adipisicing ullamco.\r\n",
                             Age = 38,
                             Company = "DIGIAL",
@@ -1338,7 +1338,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 7,
+                            CustomerId = 7,
                             About = "Duis id do nostrud occaecat veniam ipsum minim id. Laborum nulla cillum nostrud sint proident ad laboris excepteur. Irure aliquip aliqua sunt consectetur dolore deserunt nulla magna magna esse magna dolore nisi sunt. Sunt qui consequat dolor pariatur consectetur pariatur nulla. Sunt non consectetur occaecat id qui. Labore veniam dolore sunt esse sunt mollit esse nulla mollit ex ad. Voluptate ex nostrud elit pariatur qui.\r\n",
                             Age = 37,
                             Company = "COMFIRM",
@@ -1356,7 +1356,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 8,
+                            CustomerId = 8,
                             About = "Commodo do laborum elit ex. Cupidatat aliqua mollit amet nostrud veniam minim reprehenderit laborum est exercitation. Non in occaecat incididunt Lorem eu aliqua cillum commodo consectetur reprehenderit proident Lorem laboris. Nulla commodo ea dolore esse id anim minim commodo id laboris commodo veniam. Occaecat officia laborum eiusmod minim anim quis amet ut quis id fugiat. Ipsum ullamco aute labore est proident mollit anim duis ea minim Lorem proident ea amet. Incididunt ipsum exercitation anim adipisicing.\r\n",
                             Age = 35,
                             Company = "MOMENTIA",
@@ -1374,7 +1374,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 9,
+                            CustomerId = 9,
                             About = "Consectetur sint incididunt consectetur consectetur anim commodo ea cupidatat exercitation pariatur ipsum dolor nisi. Pariatur sunt tempor aliquip commodo nulla. Tempor proident reprehenderit non consectetur deserunt qui quis et. Duis et esse irure pariatur amet minim tempor aute exercitation consectetur mollit.\r\n",
                             Age = 22,
                             Company = "KLUGGER",
@@ -1392,7 +1392,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 10,
+                            CustomerId = 10,
                             About = "Exercitation non nulla mollit et excepteur nulla amet cupidatat officia dolore laborum sint in veniam. Labore reprehenderit Lorem reprehenderit nisi sunt tempor. Cillum ea cupidatat voluptate labore ipsum ex laborum. Sunt consectetur culpa ipsum et qui. Velit consectetur dolore exercitation exercitation incididunt deserunt enim incididunt in. Laborum nulla incididunt tempor qui in aliqua eu aliqua eiusmod sunt.\r\n",
                             Age = 27,
                             Company = "EXOSTREAM",
@@ -1410,7 +1410,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 11,
+                            CustomerId = 11,
                             About = "Elit fugiat in sit ipsum non consectetur. Cillum labore occaecat et dolore minim. Deserunt ullamco officia ullamco minim exercitation nulla tempor do cupidatat dolore fugiat labore Lorem ut. Amet consectetur aliqua id culpa fugiat tempor ipsum minim incididunt labore.\r\n",
                             Age = 34,
                             Company = "BALOOBA",
@@ -1428,7 +1428,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 12,
+                            CustomerId = 12,
                             About = "Elit sit amet ea proident irure ipsum sit tempor adipisicing aute ut enim. Magna veniam consectetur fugiat in aliquip et et deserunt laboris ipsum irure consectetur consequat. Aute sint aliquip laboris non non ea dolor nulla id occaecat fugiat Lorem elit. Sunt anim adipisicing irure eiusmod aute officia esse minim quis nulla qui culpa. Voluptate nostrud nostrud deserunt dolor enim Lorem anim consectetur consequat sunt. Qui mollit deserunt amet proident voluptate excepteur nulla in minim enim pariatur reprehenderit.\r\n",
                             Age = 29,
                             Company = "NORALI",
@@ -1446,7 +1446,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 13,
+                            CustomerId = 13,
                             About = "Amet elit aute ipsum Lorem aute ipsum irure eu deserunt ad et esse exercitation quis. Esse occaecat pariatur eu ea qui excepteur deserunt id consequat nulla anim quis sint qui. Ullamco laboris magna eu ullamco magna cupidatat ex. Ad ad nostrud velit mollit esse in labore mollit dolore voluptate enim.\r\n",
                             Age = 28,
                             Company = "TALKOLA",
@@ -1464,7 +1464,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 14,
+                            CustomerId = 14,
                             About = "Enim deserunt irure officia irure. Eiusmod do ex proident ipsum duis consectetur Lorem ut incididunt labore ea cupidatat ad. Sint et dolore esse elit consequat tempor velit adipisicing ut tempor consectetur. Dolore pariatur nisi sit id enim aliqua anim dolore id dolore eiusmod. Sit velit eu amet Lorem cillum Lorem exercitation et sit consectetur aute aliqua exercitation est.\r\n",
                             Age = 32,
                             Company = "ENERSAVE",
@@ -1482,7 +1482,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 15,
+                            CustomerId = 15,
                             About = "Voluptate nostrud ea ullamco sunt do id velit eiusmod laboris cillum aute minim aliqua ad. Ut non non id amet esse velit ea dolor consectetur. Enim id incididunt adipisicing deserunt.\r\n",
                             Age = 37,
                             Company = "FRENEX",
@@ -1500,7 +1500,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 16,
+                            CustomerId = 16,
                             About = "Voluptate anim sit labore cupidatat. Reprehenderit eiusmod eu ex incididunt cupidatat culpa duis nulla. Eu ea eu tempor esse adipisicing Lorem fugiat consectetur.\r\n",
                             Age = 38,
                             Company = "GONKLE",
@@ -1518,7 +1518,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 17,
+                            CustomerId = 17,
                             About = "Magna fugiat anim officia proident adipisicing aliquip ut laboris elit ad do in eiusmod. Nisi in Lorem eiusmod qui enim consequat aliqua. Dolor Lorem velit esse ipsum labore elit commodo ea cupidatat mollit aliqua pariatur anim. Laborum irure aliqua enim ipsum eu minim duis.\r\n",
                             Age = 31,
                             Company = "MANTRIX",
@@ -1536,7 +1536,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 18,
+                            CustomerId = 18,
                             About = "Magna do reprehenderit cillum est excepteur laboris culpa qui Lorem eiusmod nisi deserunt irure. Ipsum exercitation sit anim ad nisi incididunt commodo fugiat aliqua excepteur commodo. Est pariatur adipisicing excepteur cillum. Et pariatur eu excepteur culpa voluptate anim nisi esse ipsum adipisicing. Magna et magna eu aute ea quis cillum non culpa reprehenderit culpa. Incididunt tempor irure do consectetur occaecat voluptate nisi.\r\n",
                             Age = 38,
                             Company = "CONCILITY",
@@ -1554,7 +1554,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 19,
+                            CustomerId = 19,
                             About = "Ullamco cupidatat dolore anim commodo aliquip ad. Sunt proident nisi proident et irure minim est tempor nisi. Sint ex officia eu qui id deserunt id. Nisi amet nostrud velit aliqua ut adipisicing cupidatat duis occaecat eiusmod aute. Magna eiusmod in nostrud dolor amet eiusmod irure.\r\n",
                             Age = 33,
                             Company = "XIXAN",
@@ -1572,7 +1572,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 20,
+                            CustomerId = 20,
                             About = "Labore fugiat magna deserunt deserunt esse occaecat labore reprehenderit dolor dolor. Magna eiusmod dolore exercitation do sunt ad. Dolore aliquip proident culpa nisi in aliqua enim nostrud nisi ullamco voluptate nostrud magna ex. Incididunt consequat dolor velit commodo sint anim nisi consectetur sit cillum mollit anim.\r\n",
                             Age = 39,
                             Company = "MINGA",
@@ -1590,7 +1590,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 21,
+                            CustomerId = 21,
                             About = "Ex tempor excepteur sint eu aliquip pariatur ex ipsum consectetur adipisicing est tempor fugiat id. Officia quis ea consectetur anim magna et eiusmod dolore voluptate. Cillum exercitation sit proident eiusmod aliquip culpa deserunt deserunt minim reprehenderit cupidatat.\r\n",
                             Age = 31,
                             Company = "ULTRIMAX",
@@ -1608,7 +1608,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 22,
+                            CustomerId = 22,
                             About = "Ut excepteur minim quis irure. Consequat ad id proident commodo ullamco consectetur eiusmod adipisicing elit. Amet mollit ad laboris aliqua. Qui elit id cillum deserunt duis laboris irure pariatur nulla elit cillum qui in tempor. Mollit quis aute voluptate ut. Labore et magna et laboris consectetur.\r\n",
                             Age = 33,
                             Company = "STEELFAB",
@@ -1626,7 +1626,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 23,
+                            CustomerId = 23,
                             About = "Laboris fugiat non irure proident ad est sunt deserunt ut minim veniam adipisicing commodo fugiat. Pariatur adipisicing ad ad non sunt labore laboris sunt. Laborum ad dolor minim eu minim Lorem Lorem laborum. Velit laboris anim consectetur sit Lorem magna ad ad ut anim.\r\n",
                             Age = 23,
                             Company = "POLARIA",
@@ -1644,7 +1644,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 24,
+                            CustomerId = 24,
                             About = "Lorem cupidatat duis excepteur ullamco enim velit quis excepteur officia qui velit officia sint. Aliqua ut nostrud commodo dolore dolore mollit pariatur ex eiusmod consequat ullamco officia est consectetur. Elit magna incididunt aliquip consectetur consectetur ut mollit nulla id sint ullamco ullamco. Mollit cillum magna labore ullamco occaecat sint labore velit voluptate pariatur anim fugiat. Ullamco nulla incididunt velit minim excepteur ad voluptate officia eu est. Eiusmod quis amet adipisicing in cillum elit sit duis eu eiusmod. Dolor ex non deserunt deserunt eiusmod consequat enim ex incididunt anim.\r\n",
                             Age = 35,
                             Company = "LYRIA",
@@ -1662,7 +1662,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 25,
+                            CustomerId = 25,
                             About = "Est mollit non aliqua Lorem labore ipsum cupidatat ut eu sunt exercitation Lorem et anim. Lorem nisi non et consequat. Pariatur velit labore non non. Cillum ea et ut anim sunt laborum officia qui labore aliquip do deserunt do. Est ad occaecat pariatur minim ut do eiusmod dolore eu culpa. Fugiat minim sit culpa consectetur eu ad incididunt. Commodo exercitation amet nulla consectetur deserunt deserunt consectetur ad et do eiusmod cillum elit.\r\n",
                             Age = 32,
                             Company = "HELIXO",
@@ -1680,7 +1680,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 26,
+                            CustomerId = 26,
                             About = "Esse magna aliqua mollit deserunt. Non amet velit occaecat exercitation nostrud mollit exercitation sunt. Incididunt veniam velit proident sint non cupidatat dolore deserunt nisi est tempor incididunt in.\r\n",
                             Age = 27,
                             Company = "MYOPIUM",
@@ -1698,7 +1698,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 27,
+                            CustomerId = 27,
                             About = "Ut id tempor commodo duis proident irure. Lorem nisi esse duis duis exercitation. Sunt labore irure magna deserunt exercitation ut fugiat veniam ipsum Lorem voluptate. Voluptate adipisicing nulla incididunt sunt adipisicing eu incididunt laborum. Aliquip enim nostrud magna culpa esse dolor irure culpa velit non laboris est ipsum.\r\n",
                             Age = 29,
                             Company = "APEX",
@@ -1716,7 +1716,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 28,
+                            CustomerId = 28,
                             About = "Exercitation magna mollit ad nisi ad commodo eu sint. Labore voluptate incididunt irure voluptate consequat ullamco exercitation eiusmod ipsum ea ipsum. Deserunt sint eu proident sunt ipsum ipsum ut et. Eu non anim esse aute consectetur. Lorem excepteur labore consequat incididunt eu enim elit duis nisi culpa proident. Officia et enim ad ipsum sit ad. Consequat enim culpa anim Lorem ullamco qui amet nisi sit mollit incididunt do nisi enim.\r\n",
                             Age = 21,
                             Company = "OPTIQUE",
@@ -1734,7 +1734,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 29,
+                            CustomerId = 29,
                             About = "Sit duis occaecat nisi ad enim velit eu. Fugiat dolore nisi eiusmod et occaecat voluptate laboris culpa ex consequat quis et. Eu nisi tempor ullamco sunt officia aliqua id nulla consequat. Lorem ipsum ut proident velit ut minim tempor. Et ullamco dolor commodo non cupidatat nulla magna.\r\n",
                             Age = 22,
                             Company = "PRINTSPAN",
@@ -1752,7 +1752,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 30,
+                            CustomerId = 30,
                             About = "Ea non aliqua Lorem Lorem labore excepteur. Minim reprehenderit occaecat pariatur ex in ullamco. Consectetur voluptate esse culpa cupidatat qui tempor deserunt. Consectetur deserunt fugiat enim duis incididunt irure dolore nisi cillum. Ea sit consectetur ullamco quis fugiat nostrud occaecat tempor fugiat elit laborum minim.\r\n",
                             Age = 28,
                             Company = "PURIA",
@@ -1770,7 +1770,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 31,
+                            CustomerId = 31,
                             About = "Duis dolore duis velit et. Ut veniam magna enim tempor est officia veniam reprehenderit adipisicing. Enim cupidatat nostrud anim do anim consequat irure est officia aliqua. Non exercitation aliquip minim consequat cillum. Amet fugiat in id irure deserunt ea ut anim.\r\n",
                             Age = 24,
                             Company = "XEREX",
@@ -1788,7 +1788,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 32,
+                            CustomerId = 32,
                             About = "Est incididunt pariatur ex ea in nostrud est consequat sit esse Lorem ad est reprehenderit. Voluptate veniam minim tempor Lorem occaecat amet amet id adipisicing excepteur dolor duis sint dolore. Eiusmod duis veniam commodo tempor labore duis ipsum aliquip nulla ut. Adipisicing laboris pariatur sunt et ex proident. Sunt excepteur cillum aute laborum id duis irure do excepteur amet in aliqua aute ad. Laborum qui laborum ipsum reprehenderit proident culpa commodo non ea in.\r\n",
                             Age = 30,
                             Company = "TROLLERY",
@@ -1806,7 +1806,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 33,
+                            CustomerId = 33,
                             About = "Enim amet culpa aliqua adipisicing velit nisi laboris fugiat. Do veniam velit in officia. Ipsum fugiat mollit cupidatat exercitation proident. Velit ad fugiat pariatur sit nisi irure aliqua Lorem sint irure fugiat nisi magna.\r\n",
                             Age = 37,
                             Company = "SYNTAC",
@@ -1824,7 +1824,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 34,
+                            CustomerId = 34,
                             About = "Minim dolore aliquip adipisicing consectetur ipsum eu aliqua laborum sint ullamco. Cillum pariatur velit officia do velit labore labore est sunt. Veniam consectetur fugiat cillum dolor. Pariatur nisi do dolore proident consequat culpa irure aliqua cillum.\r\n",
                             Age = 40,
                             Company = "GEEKULAR",
@@ -1842,7 +1842,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 35,
+                            CustomerId = 35,
                             About = "Consequat irure consequat sunt nulla laborum incididunt magna ea. In voluptate minim adipisicing qui culpa laborum sunt veniam qui dolore do proident mollit cillum. Ut non proident veniam laborum voluptate et cillum adipisicing pariatur.\r\n",
                             Age = 38,
                             Company = "ACCIDENCY",
@@ -1860,7 +1860,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 36,
+                            CustomerId = 36,
                             About = "Non labore sit ex incididunt sunt nostrud quis tempor minim proident eiusmod. Excepteur et commodo laboris amet pariatur ad consectetur veniam commodo consectetur. Nostrud anim do aute do dolor officia reprehenderit quis nisi commodo. Adipisicing ea fugiat officia cupidatat reprehenderit irure dolore laborum ullamco ea laborum ea adipisicing occaecat. Aute tempor occaecat voluptate mollit voluptate consectetur ullamco. Officia non aliqua ad incididunt non reprehenderit ipsum consequat pariatur ullamco ipsum.\r\n",
                             Age = 32,
                             Company = "UXMOX",
@@ -1878,7 +1878,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 37,
+                            CustomerId = 37,
                             About = "Culpa do non consequat mollit. Culpa nostrud aute labore elit magna anim aute ullamco labore sit consectetur minim duis nisi. Velit in quis do laboris duis. Non voluptate dolore ad culpa commodo eu in enim eu duis culpa ullamco in ad.\r\n",
                             Age = 33,
                             Company = "EXTRAGEN",
@@ -1896,7 +1896,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 38,
+                            CustomerId = 38,
                             About = "Tempor cupidatat occaecat laboris deserunt ad labore ad aliquip magna. Lorem dolor tempor fugiat excepteur do culpa nostrud non esse elit laborum ad velit consequat. Ut officia Lorem mollit velit enim enim velit nostrud qui veniam voluptate cillum veniam non. Dolore cillum sit anim cillum velit ullamco nisi tempor eiusmod consequat esse nulla. Quis in incididunt ullamco ea do est pariatur commodo duis occaecat fugiat aliqua consequat. Sunt sit incididunt voluptate pariatur eu aute nisi enim. Reprehenderit nulla officia consequat est nisi sint ut esse nostrud dolore.\r\n",
                             Age = 24,
                             Company = "EPLOSION",
@@ -1914,7 +1914,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 39,
+                            CustomerId = 39,
                             About = "Consequat occaecat quis adipisicing et sit nisi pariatur voluptate voluptate quis. Lorem ipsum ea nisi consectetur deserunt ut elit incididunt aliqua nisi. Sunt irure nostrud aliquip minim.\r\n",
                             Age = 30,
                             Company = "COWTOWN",
@@ -1932,7 +1932,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 40,
+                            CustomerId = 40,
                             About = "Commodo non irure reprehenderit labore cillum nostrud non consequat quis cillum nisi. Nulla velit laborum mollit fugiat irure ad ea exercitation. Officia ad ullamco irure veniam mollit minim duis amet anim eiusmod duis sint ea. Id officia nisi officia commodo irure aliqua laborum ut velit officia ipsum. Sint sint exercitation qui quis mollit deserunt id eiusmod aliquip est. Tempor aute adipisicing laboris quis reprehenderit officia.\r\n",
                             Age = 34,
                             Company = "METROZ",
@@ -1950,7 +1950,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 41,
+                            CustomerId = 41,
                             About = "Nulla non ut dolor amet quis laborum ex aliquip tempor nulla tempor. Mollit ut id duis amet laborum sint magna nulla fugiat mollit laborum laborum. Dolor aute commodo laboris ea ipsum laborum dolor ad Lorem nisi occaecat deserunt. Ad sit dolor sunt proident.\r\n",
                             Age = 35,
                             Company = "ECRATER",
@@ -1968,7 +1968,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 42,
+                            CustomerId = 42,
                             About = "Non officia ea laboris do mollit incididunt aute nulla aliqua cupidatat ad. Amet mollit aliqua fugiat officia labore. Consectetur sint ullamco reprehenderit mollit labore et eu velit magna cupidatat laboris voluptate ullamco.\r\n",
                             Age = 23,
                             Company = "REMOLD",
@@ -1986,7 +1986,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 43,
+                            CustomerId = 43,
                             About = "Sit eu fugiat ad in laborum ad veniam ad. Incididunt est veniam elit cupidatat laboris nostrud pariatur sit cillum. Ut labore laborum irure reprehenderit fugiat exercitation. Minim reprehenderit laboris eu sint veniam sit sit. Excepteur occaecat nisi do velit amet aliquip adipisicing occaecat adipisicing velit excepteur voluptate. Excepteur sint cupidatat cupidatat esse ut duis magna pariatur eu deserunt. Tempor occaecat eiusmod amet esse dolore non elit.\r\n",
                             Age = 37,
                             Company = "ZAJ",
@@ -2004,7 +2004,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 44,
+                            CustomerId = 44,
                             About = "Ea velit do in culpa laboris commodo. Sunt deserunt dolore occaecat eu exercitation. Duis ut velit proident nisi sunt ut eu qui et. Quis eu do officia tempor ullamco ut. Cillum est laboris minim officia tempor cupidatat magna eiusmod eiusmod nisi nisi ullamco est. Mollit velit anim eiusmod ut ex veniam aliqua non. Laboris est duis sunt mollit duis in irure adipisicing aute exercitation irure quis deserunt magna.\r\n",
                             Age = 21,
                             Company = "GENMEX",
@@ -2022,7 +2022,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 45,
+                            CustomerId = 45,
                             About = "Nulla qui proident est cupidatat est fugiat. Sunt esse sunt ut in. Amet cupidatat non adipisicing voluptate do Lorem commodo. Commodo nulla ea aute elit magna cupidatat cupidatat non Lorem ex. Exercitation aliquip sint magna sunt amet ad duis exercitation. Labore consequat officia qui qui aliqua sit eu irure consectetur cupidatat. Enim velit dolor adipisicing enim.\r\n",
                             Age = 20,
                             Company = "MOBILDATA",
@@ -2040,7 +2040,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 46,
+                            CustomerId = 46,
                             About = "Non dolore tempor ullamco sunt sit dolor reprehenderit. Culpa ut tempor labore duis consequat in laborum elit. Nostrud sunt proident aliqua cillum ex quis ipsum do dolor.\r\n",
                             Age = 21,
                             Company = "EVENTAGE",
@@ -2058,7 +2058,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 47,
+                            CustomerId = 47,
                             About = "Nulla consequat culpa sit aute commodo sunt voluptate pariatur et. Duis minim eiusmod incididunt labore eu adipisicing irure ut minim. Non excepteur est cillum consectetur ut magna minim. Ex anim occaecat consectetur Lorem proident ex sit aute ullamco.\r\n",
                             Age = 20,
                             Company = "EVENTIX",
@@ -2076,7 +2076,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 48,
+                            CustomerId = 48,
                             About = "Irure amet ad aliqua ullamco ut ipsum consectetur qui elit. Incididunt qui minim fugiat sit ut dolor enim. Ipsum aliqua cupidatat commodo elit laborum. Labore tempor reprehenderit minim veniam ex culpa id non aute. Ut Lorem cillum consectetur dolore magna adipisicing esse sunt mollit quis aliquip.\r\n",
                             Age = 35,
                             Company = "ROTODYNE",
@@ -2094,7 +2094,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 49,
+                            CustomerId = 49,
                             About = "Aliquip laboris occaecat reprehenderit et esse nostrud adipisicing nostrud consectetur. Qui voluptate labore ipsum qui ex exercitation aliqua nulla labore est proident laborum. Exercitation dolore ipsum dolor aliqua dolor labore do.\r\n",
                             Age = 35,
                             Company = "CONJURICA",
@@ -2112,7 +2112,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 50,
+                            CustomerId = 50,
                             About = "Deserunt dolore veniam esse aliquip aute laborum dolor veniam do ullamco. Ea qui pariatur dolore eiusmod duis sint irure elit. Nostrud aliquip culpa fugiat qui consectetur ad et. Magna commodo pariatur officia tempor minim culpa. Incididunt in ea cillum officia.\r\n",
                             Age = 33,
                             Company = "ONTALITY",
@@ -2130,7 +2130,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 51,
+                            CustomerId = 51,
                             About = "Mollit in id culpa ex duis do minim labore cupidatat laboris commodo. Cillum aliqua veniam excepteur ea Lorem. Amet enim in tempor dolore aliqua culpa nisi qui tempor aliqua mollit enim.\r\n",
                             Age = 35,
                             Company = "GEOFORM",
@@ -2148,7 +2148,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 52,
+                            CustomerId = 52,
                             About = "Ea ullamco commodo exercitation culpa consectetur officia Lorem. Dolore laborum adipisicing veniam cillum minim officia elit. Ex occaecat eiusmod reprehenderit ullamco laborum eiusmod aliqua officia. Voluptate nulla fugiat id aute. Eiusmod cupidatat laboris veniam proident cupidatat tempor reprehenderit consectetur voluptate eu in quis magna officia. Minim labore nulla anim veniam.\r\n",
                             Age = 23,
                             Company = "ZENTHALL",
@@ -2166,7 +2166,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 53,
+                            CustomerId = 53,
                             About = "Incididunt minim ullamco velit in mollit do proident est do voluptate do duis. Cupidatat veniam eu tempor enim laborum ipsum aute ullamco. Exercitation excepteur magna ad incididunt labore enim officia qui consequat nisi. Proident veniam consequat eiusmod Lorem irure do cupidatat duis eiusmod non nulla dolor laborum. Ex tempor ea ad ex consequat cillum mollit enim in.\r\n",
                             Age = 28,
                             Company = "PHORMULA",
@@ -2184,7 +2184,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 54,
+                            CustomerId = 54,
                             About = "Ut consectetur Lorem qui et sint ut adipisicing veniam sint nisi. Exercitation ea nostrud nulla velit. Nisi dolore officia ex nulla Lorem cupidatat.\r\n",
                             Age = 33,
                             Company = "PHARMEX",
@@ -2202,7 +2202,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 55,
+                            CustomerId = 55,
                             About = "Mollit duis adipisicing amet eiusmod duis ipsum. Sint officia duis reprehenderit nulla ea labore veniam et dolore ipsum eiusmod. Et labore adipisicing duis laborum magna et reprehenderit excepteur laboris culpa labore aliqua ea aliquip.\r\n",
                             Age = 39,
                             Company = "ZOLAVO",
@@ -2220,7 +2220,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 56,
+                            CustomerId = 56,
                             About = "Dolore reprehenderit incididunt nostrud in elit incididunt in. Et sint in ea dolor eiusmod in commodo exercitation elit ut incididunt et anim minim. Reprehenderit laborum cillum pariatur elit dolore.\r\n",
                             Age = 37,
                             Company = "NEOCENT",
@@ -2238,7 +2238,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 57,
+                            CustomerId = 57,
                             About = "Minim pariatur excepteur et ullamco aliquip ut laboris irure minim adipisicing elit magna amet ad. Aliquip officia incididunt eu excepteur ad anim qui anim. Lorem in tempor sint cupidatat in laborum nostrud ullamco occaecat. Ex do aute deserunt sunt ipsum elit tempor et tempor laboris officia excepteur excepteur. Adipisicing Lorem sunt sit dolor irure. Deserunt occaecat amet tempor ea. Velit nulla pariatur ipsum eu esse veniam voluptate officia labore dolor occaecat.\r\n",
                             Age = 37,
                             Company = "EXERTA",
@@ -2256,7 +2256,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 58,
+                            CustomerId = 58,
                             About = "Aliquip do proident aliquip duis exercitation est tempor irure irure ipsum. Do commodo minim anim nostrud est minim ea ea deserunt aute elit non id. Labore et commodo quis dolor ut pariatur esse sunt cupidatat duis anim adipisicing in enim. Ut consectetur ut et adipisicing.\r\n",
                             Age = 23,
                             Company = "SULTRAX",
@@ -2274,7 +2274,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 59,
+                            CustomerId = 59,
                             About = "Officia consequat pariatur do fugiat laboris. Mollit consequat proident fugiat id ad aute commodo cupidatat consequat nulla. Aliquip fugiat tempor ad aliqua in aliqua do et veniam excepteur aliquip tempor ipsum. Elit Lorem officia aliquip consequat sint dolore duis non labore id laborum exercitation ea amet. Deserunt culpa adipisicing sunt exercitation ipsum proident occaecat commodo fugiat exercitation quis sit. Sit officia duis nostrud proident eu anim pariatur ex laborum sit dolor reprehenderit. Consequat id in et nostrud exercitation velit non amet id id adipisicing dolore.\r\n",
                             Age = 31,
                             Company = "QUALITERN",
@@ -2292,7 +2292,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 60,
+                            CustomerId = 60,
                             About = "Incididunt anim ullamco eu ipsum non Lorem est eiusmod fugiat mollit magna Lorem nisi. Occaecat eiusmod do deserunt qui laborum adipisicing exercitation anim velit ullamco. Do pariatur elit consectetur consequat. Aliquip magna ipsum cillum pariatur exercitation ex elit. Irure tempor mollit sunt officia nisi nisi duis minim occaecat do consequat irure id voluptate.\r\n",
                             Age = 26,
                             Company = "NAVIR",
@@ -2310,7 +2310,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 61,
+                            CustomerId = 61,
                             About = "Eiusmod do ad consectetur incididunt quis sunt in laboris culpa velit sint esse commodo. Non dolor laboris enim id sunt aute duis laborum aute est id id. Aliqua reprehenderit enim nulla amet aliquip laborum irure qui aliquip quis nostrud laborum ad. Excepteur dolore officia voluptate culpa aliquip ex officia adipisicing occaecat commodo reprehenderit in adipisicing nulla. Sunt laboris excepteur mollit quis. Ex in excepteur esse commodo sunt ipsum in labore.\r\n",
                             Age = 37,
                             Company = "ELECTONIC",
@@ -2328,7 +2328,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 62,
+                            CustomerId = 62,
                             About = "Ipsum non ullamco consequat nulla. Labore aliquip commodo nulla esse id aliqua occaecat et nostrud ipsum duis aliqua. Sit reprehenderit anim nostrud dolore irure quis mollit non incididunt voluptate nulla aute officia. Esse do labore dolor officia ullamco nostrud fugiat sit consectetur nostrud nostrud ad proident. Id qui proident nostrud ad anim eiusmod laborum excepteur anim proident magna pariatur esse irure. Non adipisicing esse ex occaecat.\r\n",
                             Age = 20,
                             Company = "QUORDATE",
@@ -2346,7 +2346,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 63,
+                            CustomerId = 63,
                             About = "Ipsum irure voluptate est exercitation laboris quis. Deserunt consectetur culpa qui pariatur occaecat officia fugiat. Proident reprehenderit Lorem sunt ullamco aliquip eiusmod in excepteur amet sint et ipsum pariatur. Velit dolore occaecat duis sit sit sit. Eiusmod aliquip proident est ipsum elit excepteur quis eiusmod aute incididunt minim ipsum.\r\n",
                             Age = 28,
                             Company = "QUIZKA",
@@ -2364,7 +2364,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 64,
+                            CustomerId = 64,
                             About = "Aliquip enim aliqua do do dolore proident Lorem tempor. Consectetur minim pariatur deserunt nisi. Adipisicing minim voluptate excepteur ipsum deserunt dolore. Esse sit pariatur exercitation sunt proident pariatur cupidatat consequat sunt veniam dolor veniam et duis. Mollit incididunt aliqua commodo dolore veniam pariatur laborum aute anim officia voluptate ut.\r\n",
                             Age = 27,
                             Company = "ZOID",
@@ -2382,7 +2382,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 65,
+                            CustomerId = 65,
                             About = "Ullamco aliqua pariatur tempor reprehenderit nulla laboris excepteur. Esse adipisicing ex Lorem sint aute aute nostrud aliquip ipsum ex est dolore. Proident magna aliqua reprehenderit aliquip culpa nulla aliqua. Magna ut eiusmod nisi incididunt commodo commodo irure sunt. Qui incididunt aute ipsum sunt incididunt quis magna irure. Anim velit nulla id do non pariatur.\r\n",
                             Age = 36,
                             Company = "MEDICROIX",
@@ -2400,7 +2400,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 66,
+                            CustomerId = 66,
                             About = "Minim dolore aute ea dolore laboris mollit cillum ut et sunt esse consequat deserunt labore. Voluptate amet commodo nostrud anim exercitation in velit. Labore ad fugiat proident id sit voluptate enim incididunt id aliqua dolor. Ea officia enim sunt consectetur Lorem incididunt incididunt esse officia est. Laboris Lorem do ut ex sint proident laboris amet veniam velit duis.\r\n",
                             Age = 29,
                             Company = "DYMI",
@@ -2418,7 +2418,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 67,
+                            CustomerId = 67,
                             About = "Velit duis dolor ex Lorem id. Lorem amet ex aliqua magna commodo nostrud. Culpa et pariatur reprehenderit tempor qui sit eu adipisicing sint culpa incididunt proident officia nisi.\r\n",
                             Age = 28,
                             Company = "VERAQ",
@@ -2436,7 +2436,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 68,
+                            CustomerId = 68,
                             About = "Ipsum enim qui proident laboris et. Anim anim irure aliquip et qui in nisi excepteur irure irure in mollit dolore proident. Consectetur est amet do voluptate elit. Cillum mollit voluptate sit ipsum. Id cupidatat dolore aliqua deserunt.\r\n",
                             Age = 36,
                             Company = "LIMOZEN",
@@ -2454,7 +2454,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 69,
+                            CustomerId = 69,
                             About = "Deserunt sunt non do anim. Fugiat fugiat sunt ut anim pariatur anim consequat. Labore culpa id ad pariatur laborum cupidatat eiusmod aliqua laboris. Voluptate tempor esse ad tempor reprehenderit aliqua enim ea ut consectetur Lorem culpa ipsum. Dolor anim exercitation quis exercitation dolore do eu cupidatat nisi elit quis eiusmod.\r\n",
                             Age = 39,
                             Company = "COMTEST",
@@ -2472,7 +2472,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 70,
+                            CustomerId = 70,
                             About = "Officia consequat eiusmod aliquip deserunt consequat ipsum. Nostrud reprehenderit sit veniam anim et sunt aliquip labore ullamco proident id. Officia do aliquip et exercitation excepteur incididunt officia ad. Qui amet occaecat consectetur fugiat quis ut officia dolore mollit ut minim eiusmod in eiusmod.\r\n",
                             Age = 40,
                             Company = "IMANT",
@@ -2490,7 +2490,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 71,
+                            CustomerId = 71,
                             About = "In incididunt do labore non ea dolore anim sint quis voluptate voluptate Lorem. Cupidatat exercitation eiusmod laboris commodo occaecat ut nostrud id. Est exercitation dolore consequat tempor amet consectetur non laboris culpa mollit dolor. Cillum ea amet occaecat dolor. Dolor veniam labore mollit nisi enim fugiat voluptate ea occaecat. Irure incididunt est proident laboris proident sint et aliqua exercitation laboris ad nostrud. Ut non mollit id cillum qui et do sit quis.\r\n",
                             Age = 23,
                             Company = "ZIDANT",
@@ -2508,7 +2508,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 72,
+                            CustomerId = 72,
                             About = "Duis excepteur in eiusmod ea eiusmod voluptate pariatur tempor id aliqua minim. Irure nisi dolore culpa laboris veniam pariatur nostrud labore Lorem. Occaecat labore Lorem consectetur ullamco magna ad magna elit. Duis quis eu Lorem Lorem laborum minim laborum minim velit magna ex ipsum consequat consequat. Laboris do reprehenderit commodo aute adipisicing ut fugiat et nulla officia anim amet non. Ea consectetur sint qui cillum proident esse. Adipisicing dolor minim Lorem eiusmod.\r\n",
                             Age = 22,
                             Company = "UNCORP",
@@ -2526,7 +2526,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 73,
+                            CustomerId = 73,
                             About = "Veniam laboris laboris cillum laboris in in. Officia veniam sit ut sunt veniam quis ipsum pariatur cupidatat. Eu amet nulla magna dolor ullamco ea adipisicing Lorem duis cupidatat. Incididunt magna incididunt enim irure voluptate quis. Laboris ex ullamco irure ipsum reprehenderit minim ipsum consectetur adipisicing ullamco labore sit laborum.\r\n",
                             Age = 26,
                             Company = "ZINCA",
@@ -2544,7 +2544,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 74,
+                            CustomerId = 74,
                             About = "Tempor adipisicing veniam est veniam eiusmod sunt enim amet aliquip. Magna deserunt deserunt elit fugiat magna in ex culpa incididunt pariatur aliqua. Id occaecat aliqua esse Lorem non et qui enim fugiat. Qui sint esse exercitation occaecat. Excepteur consequat veniam do dolore. Consectetur aliqua mollit laborum proident irure consectetur dolor elit laboris eu elit do tempor. Tempor consequat exercitation mollit esse adipisicing ut dolore voluptate est sit ad pariatur exercitation.\r\n",
                             Age = 35,
                             Company = "CIRCUM",
@@ -2562,7 +2562,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 75,
+                            CustomerId = 75,
                             About = "Non fugiat mollit deserunt pariatur anim. Dolore adipisicing aliquip reprehenderit laborum qui do. Id aliquip ut commodo sunt Lorem. Mollit duis sunt est magna laborum fugiat in nisi amet enim aliquip fugiat.\r\n",
                             Age = 32,
                             Company = "PROGENEX",
@@ -2580,7 +2580,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 76,
+                            CustomerId = 76,
                             About = "Exercitation eiusmod cillum aute culpa cillum aliquip minim anim eu. Labore irure irure nulla ipsum officia consequat minim minim consectetur officia sunt. Fugiat ad ipsum nostrud magna occaecat laborum non ullamco mollit aliqua officia consequat. Irure sunt ea sit dolor et Lorem adipisicing in. Cupidatat amet nulla reprehenderit minim ex cillum aute nostrud. Mollit culpa dolore do est id tempor. Do ea et voluptate deserunt elit ex tempor.\r\n",
                             Age = 26,
                             Company = "KEENGEN",
@@ -2598,7 +2598,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 77,
+                            CustomerId = 77,
                             About = "Veniam velit mollit dolor officia quis amet nisi deserunt elit tempor. Culpa nulla incididunt qui eu aute excepteur sint esse dolore tempor quis sit sunt. Nulla consectetur cupidatat officia cupidatat. Nulla proident non dolore enim consequat non labore cupidatat ex sit est.\r\n",
                             Age = 36,
                             Company = "COMTRAIL",
@@ -2616,7 +2616,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 78,
+                            CustomerId = 78,
                             About = "Amet voluptate nostrud magna fugiat culpa amet ullamco ullamco quis velit aliqua dolor irure cupidatat. Tempor quis cillum eu labore labore anim sunt non nisi eu in cupidatat. Velit ut laborum officia ut ea in consequat. Magna ullamco ut sunt consectetur occaecat incididunt. Nisi commodo pariatur proident eu in. Voluptate exercitation sunt laborum pariatur laborum exercitation incididunt labore amet pariatur sint adipisicing in consequat.\r\n",
                             Age = 37,
                             Company = "VIASIA",
@@ -2634,7 +2634,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 79,
+                            CustomerId = 79,
                             About = "Ut ad amet laboris sunt excepteur. Ea eiusmod magna nulla aute cupidatat deserunt esse Lorem veniam pariatur adipisicing. Pariatur consequat pariatur sunt cillum nisi pariatur consequat anim consectetur veniam anim. Esse excepteur mollit cupidatat ea. Esse laboris sunt est in reprehenderit pariatur quis. Veniam laborum aliqua labore dolor ex est consectetur occaecat excepteur in enim aliqua occaecat.\r\n",
                             Age = 33,
                             Company = "RONELON",
@@ -2652,7 +2652,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 80,
+                            CustomerId = 80,
                             About = "Veniam ea cupidatat veniam proident nulla tempor reprehenderit anim exercitation sit adipisicing ex amet. Id dolor irure velit mollit sit nostrud deserunt cupidatat. Dolore officia eiusmod dolor consectetur velit. Voluptate esse exercitation enim nulla do duis nostrud. Ea dolor non mollit nulla ea consectetur et eiusmod dolor officia sit nisi elit.\r\n",
                             Age = 33,
                             Company = "ACCUFARM",
@@ -2670,7 +2670,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 81,
+                            CustomerId = 81,
                             About = "Irure cupidatat excepteur quis labore cupidatat culpa mollit ea pariatur officia magna officia. Sunt id reprehenderit aliqua aliqua irure ullamco incididunt voluptate. Sint dolore enim consectetur officia culpa proident nisi sit magna irure sint velit do sit. Culpa minim velit deserunt non commodo magna ex nisi Lorem labore. Enim et non occaecat nostrud esse.\r\n",
                             Age = 31,
                             Company = "PORTALIS",
@@ -2688,7 +2688,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 82,
+                            CustomerId = 82,
                             About = "Anim esse ex adipisicing laboris do proident exercitation ad proident. Deserunt ad labore ad id nisi nulla duis. Mollit et eiusmod eu incididunt. Laboris nisi eu fugiat dolore minim ipsum occaecat duis et aliqua consectetur esse laboris dolore. Sit id ullamco proident dolor Lorem ea duis cillum amet nisi nisi.\r\n",
                             Age = 21,
                             Company = "MULTIFLEX",
@@ -2706,7 +2706,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 83,
+                            CustomerId = 83,
                             About = "Sit eu adipisicing anim velit nostrud cupidatat. Et deserunt esse quis aliqua non cillum laboris pariatur ipsum eu sit id laboris voluptate. Quis laboris consequat tempor dolore consectetur pariatur officia cupidatat est consequat est nostrud ad. Aliqua proident adipisicing eu elit eiusmod est irure aliqua duis laborum.\r\n",
                             Age = 25,
                             Company = "INSURON",
@@ -2724,7 +2724,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 84,
+                            CustomerId = 84,
                             About = "Ipsum non cillum velit ex ea ut. Magna Lorem laborum exercitation velit officia qui officia non fugiat excepteur. Veniam non nisi commodo duis. Magna amet veniam elit exercitation anim esse magna sunt dolore do mollit id. Veniam do sit cupidatat esse mollit reprehenderit adipisicing dolor et eiusmod elit. Veniam deserunt enim aliqua fugiat duis consequat in deserunt aute cillum.\r\n",
                             Age = 27,
                             Company = "PHEAST",
@@ -2742,7 +2742,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 85,
+                            CustomerId = 85,
                             About = "Consectetur quis ad id duis voluptate cillum minim. Sunt adipisicing aute cupidatat exercitation ut enim laborum veniam do occaecat minim ipsum. Reprehenderit voluptate enim irure quis aliqua nisi deserunt deserunt. Enim qui cillum dolor proident enim commodo commodo cillum culpa elit labore dolore. Adipisicing non dolore enim pariatur aliqua. Sunt cupidatat ex labore esse laborum fugiat commodo esse duis magna commodo proident. Irure eu et voluptate nostrud laborum dolore minim qui enim do occaecat veniam proident.\r\n",
                             Age = 30,
                             Company = "QUARMONY",
@@ -2760,7 +2760,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 86,
+                            CustomerId = 86,
                             About = "Fugiat in officia aliqua ad aliqua eiusmod do veniam esse. Veniam dolor laboris exercitation Lorem proident ullamco tempor anim irure adipisicing occaecat laboris reprehenderit. Proident occaecat ad reprehenderit veniam consectetur. Mollit dolor anim fugiat sit cillum dolore in. Nulla minim eu proident in ea ipsum esse labore ad. Nulla ad veniam aute tempor fugiat velit sit laboris qui aliquip.\r\n",
                             Age = 20,
                             Company = "GEEKOSIS",
@@ -2778,7 +2778,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 87,
+                            CustomerId = 87,
                             About = "Tempor duis incididunt in voluptate Lorem ad culpa excepteur ullamco minim officia minim fugiat dolor. Cillum cillum excepteur nulla eu reprehenderit aliqua ad occaecat enim laborum labore excepteur. Velit do occaecat mollit ea occaecat magna commodo. Eiusmod proident ut fugiat consequat occaecat eu. Sit nostrud non cupidatat consectetur dolor ullamco ex anim dolor et proident laboris consectetur in. Irure quis labore nulla cillum excepteur duis in dolor qui.\r\n",
                             Age = 32,
                             Company = "LOCAZONE",
@@ -2796,7 +2796,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 88,
+                            CustomerId = 88,
                             About = "Consectetur mollit minim labore voluptate laboris. Velit proident cillum sunt esse dolor nostrud laboris sit. Tempor do excepteur duis ullamco proident veniam enim. Sit elit cupidatat ea consequat reprehenderit mollit sit esse laboris sit velit.\r\n",
                             Age = 24,
                             Company = "PODUNK",
@@ -2814,7 +2814,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 89,
+                            CustomerId = 89,
                             About = "Culpa aliqua dolor ea non officia incididunt pariatur deserunt esse ut ex aliquip ullamco. Esse consequat anim minim deserunt aute nisi ex pariatur esse dolor. Elit nulla ea elit officia veniam aliqua reprehenderit id cillum qui. Ea est officia esse duis anim fugiat laborum esse in Lorem do mollit proident laboris. Esse mollit laboris consectetur dolore minim anim reprehenderit exercitation incididunt magna duis veniam.\r\n",
                             Age = 23,
                             Company = "TEMORAK",
@@ -2832,7 +2832,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 90,
+                            CustomerId = 90,
                             About = "Veniam minim quis nisi commodo in aliquip dolor nostrud nisi adipisicing ipsum. Aliqua sunt eu dolor cupidatat eu minim cupidatat deserunt laborum eiusmod nulla. In adipisicing enim eiusmod reprehenderit officia. Officia in laboris enim fugiat adipisicing eu deserunt consequat nostrud quis labore. Tempor mollit nostrud nostrud dolore cillum ad nisi officia.\r\n",
                             Age = 27,
                             Company = "ECLIPSENT",
@@ -2850,7 +2850,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 91,
+                            CustomerId = 91,
                             About = "Culpa quis consequat duis mollit sit commodo esse sunt nulla labore anim nostrud laboris aliquip. Mollit ea amet sunt aliqua laborum fugiat laborum anim quis elit. Mollit exercitation mollit velit et laboris veniam velit occaecat. Velit esse ex culpa enim.\r\n",
                             Age = 32,
                             Company = "ACRUEX",
@@ -2868,7 +2868,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 92,
+                            CustomerId = 92,
                             About = "Excepteur elit exercitation nulla officia ea dolor occaecat quis adipisicing esse do sit elit deserunt. Enim consequat ipsum duis in do cillum officia non esse nostrud esse tempor sit sit. Sunt duis id in nostrud. Mollit occaecat ea ad nulla proident consequat. Aliquip eiusmod deserunt velit elit aute pariatur officia.\r\n",
                             Age = 20,
                             Company = "KONGLE",
@@ -2886,7 +2886,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 93,
+                            CustomerId = 93,
                             About = "Ullamco esse est laboris quis. Excepteur cillum cillum aliquip tempor pariatur enim enim aute. Velit esse minim qui quis sit.\r\n",
                             Age = 31,
                             Company = "ARCTIQ",
@@ -2904,7 +2904,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 94,
+                            CustomerId = 94,
                             About = "Reprehenderit nostrud sint consequat cillum esse mollit laborum labore. Labore dolore quis nostrud consequat enim irure. Incididunt laboris magna ipsum sit dolore elit ut duis ea. Aute reprehenderit esse laboris sit dolor laborum mollit. Nostrud laboris sunt deserunt dolor laboris eu. Occaecat voluptate cupidatat esse do officia ipsum aute cupidatat aute ullamco velit.\r\n",
                             Age = 37,
                             Company = "ZANITY",
@@ -2922,7 +2922,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 95,
+                            CustomerId = 95,
                             About = "Incididunt reprehenderit culpa qui magna laboris incididunt excepteur adipisicing est elit in adipisicing do quis. Id aute ullamco sit mollit ipsum proident laborum ipsum irure proident officia duis. Lorem adipisicing ut excepteur esse amet adipisicing ut proident. Exercitation veniam ad ullamco do incididunt enim commodo irure.\r\n",
                             Age = 28,
                             Company = "ROCKLOGIC",
@@ -2940,7 +2940,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 96,
+                            CustomerId = 96,
                             About = "Nostrud laboris duis non nulla. Velit dolore excepteur quis enim laborum qui ullamco ipsum aute esse. Lorem adipisicing veniam aliquip veniam occaecat aute mollit est adipisicing ad. Nisi amet cillum nulla irure. Cupidatat ex do minim Lorem dolor sint.\r\n",
                             Age = 26,
                             Company = "RODEOMAD",
@@ -2958,7 +2958,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 97,
+                            CustomerId = 97,
                             About = "Nisi deserunt sunt anim et occaecat consequat commodo ea id ea eu enim sit nulla. Irure sunt ullamco et dolor fugiat. Deserunt aute nostrud ad occaecat id anim non. Ullamco officia deserunt elit tempor eiusmod pariatur enim eu. Eu ullamco ad id aute. Quis aliqua aliquip deserunt consequat fugiat sint ex incididunt irure.\r\n",
                             Age = 40,
                             Company = "DIGIGENE",
@@ -2976,7 +2976,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 98,
+                            CustomerId = 98,
                             About = "Duis enim commodo pariatur cillum mollit eu mollit ex laborum. Dolore cupidatat nostrud nulla voluptate excepteur consectetur in id cupidatat deserunt nostrud. Ea amet anim nulla velit.\r\n",
                             Age = 35,
                             Company = "ZANYMAX",
@@ -2994,7 +2994,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 99,
+                            CustomerId = 99,
                             About = "Qui deserunt veniam non laboris qui non elit non officia. Est pariatur consectetur nostrud non in sint in ullamco culpa aliquip sit culpa irure. Anim enim incididunt ipsum ullamco dolore adipisicing adipisicing anim in adipisicing aliqua. Ut in proident aliquip do veniam fugiat veniam ea velit et cillum elit dolor reprehenderit. Id do irure eiusmod minim eiusmod consectetur ex consequat cupidatat ut aliqua cupidatat. Cillum magna anim consequat id nisi velit laborum sunt id consequat quis. Duis ad laborum qui pariatur eu sit exercitation elit minim incididunt fugiat.\r\n",
                             Age = 39,
                             Company = "GLOBOIL",
@@ -3012,7 +3012,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 100,
+                            CustomerId = 100,
                             About = "Esse qui amet quis voluptate do in. Nostrud eiusmod eiusmod sunt velit id est. Officia irure deserunt cupidatat magna adipisicing aliqua reprehenderit nostrud laborum cupidatat.\r\n",
                             Age = 23,
                             Company = "VICON",
@@ -3030,7 +3030,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 101,
+                            CustomerId = 101,
                             About = "Lorem nulla veniam mollit laboris magna voluptate est nulla pariatur id. Dolore anim cillum eiusmod velit sit velit ullamco pariatur mollit officia. Aliquip tempor dolore officia id eiusmod commodo quis et occaecat fugiat sunt eiusmod deserunt. Eiusmod id aute cillum in dolor ea ipsum ipsum.\r\n",
                             Age = 33,
                             Company = "SHEPARD",
@@ -3048,7 +3048,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 102,
+                            CustomerId = 102,
                             About = "Veniam duis mollit veniam enim proident do magna id ipsum aute. Consequat culpa sunt ex adipisicing sit ullamco pariatur velit. Non elit aute irure laborum irure eu consequat commodo nostrud in reprehenderit eiusmod. Id adipisicing irure nostrud nulla veniam ullamco. Adipisicing eu proident ex sunt Lorem esse qui.\r\n",
                             Age = 34,
                             Company = "ISOLOGIX",
@@ -3066,7 +3066,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 103,
+                            CustomerId = 103,
                             About = "Mollit id dolor irure commodo cupidatat non ullamco duis sit. Excepteur reprehenderit elit laboris ullamco consequat nisi. Sit occaecat exercitation commodo do officia. Est ex sunt incididunt adipisicing officia excepteur minim adipisicing cupidatat ut enim sunt reprehenderit. Quis cillum et velit ullamco elit in deserunt. Ut culpa duis nisi elit consequat.\r\n",
                             Age = 29,
                             Company = "VERTIDE",
@@ -3084,7 +3084,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 104,
+                            CustomerId = 104,
                             About = "Enim eiusmod magna consequat Lorem id amet excepteur id mollit nisi commodo. Non culpa dolor non proident officia veniam veniam. Exercitation occaecat fugiat in magna laboris quis occaecat in veniam Lorem nostrud proident id ad. Excepteur sint aliqua dolor velit est et laboris veniam ea ipsum aliquip consectetur est.\r\n",
                             Age = 26,
                             Company = "IMAGINART",
@@ -3102,7 +3102,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 105,
+                            CustomerId = 105,
                             About = "Dolore magna amet laboris ea non et veniam sunt anim sit laborum voluptate. Consectetur duis dolor magna est. Laborum nisi pariatur exercitation elit.\r\n",
                             Age = 33,
                             Company = "HYDROCOM",
@@ -3120,7 +3120,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 106,
+                            CustomerId = 106,
                             About = "Ex elit in cupidatat non nisi Lorem reprehenderit incididunt pariatur officia consectetur reprehenderit dolore. Nulla laborum cillum et nisi mollit labore. Aliqua occaecat anim quis in ad. Aliqua non laboris exercitation nulla nostrud mollit velit cillum excepteur sint. Velit et minim consectetur magna laboris eu amet Lorem ullamco eu sunt.\r\n",
                             Age = 25,
                             Company = "TERASCAPE",
@@ -3138,7 +3138,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 107,
+                            CustomerId = 107,
                             About = "Deserunt aliqua consequat voluptate consectetur non. Exercitation pariatur duis occaecat ea consectetur consectetur quis voluptate in nulla consequat. Nostrud exercitation sunt adipisicing deserunt. Ut mollit duis pariatur ad. Laborum eiusmod nostrud nostrud enim consectetur non labore eu amet dolore cillum. Tempor ex amet proident labore ipsum eiusmod elit ea eu.\r\n",
                             Age = 22,
                             Company = "ASSISTIA",
@@ -3156,7 +3156,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 108,
+                            CustomerId = 108,
                             About = "Et aliquip sunt qui adipisicing proident ullamco ea esse dolor cupidatat quis ut culpa occaecat. Minim ipsum pariatur nulla do duis id labore excepteur dolore ut aute magna aute id. Aliquip exercitation sint consectetur voluptate anim eiusmod minim consequat adipisicing.\r\n",
                             Age = 40,
                             Company = "MELBACOR",
@@ -3174,7 +3174,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 109,
+                            CustomerId = 109,
                             About = "Lorem ullamco exercitation aliqua non ea eu officia Lorem magna quis magna. Qui cupidatat velit nulla cupidatat ullamco consequat commodo nostrud. Tempor Lorem ad reprehenderit mollit Lorem consectetur ad duis est magna. Qui pariatur mollit reprehenderit exercitation consectetur voluptate. Do reprehenderit enim sunt ex laborum amet labore fugiat.\r\n",
                             Age = 30,
                             Company = "KATAKANA",
@@ -3192,7 +3192,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 110,
+                            CustomerId = 110,
                             About = "Deserunt veniam eiusmod magna consectetur adipisicing mollit enim et ea irure. Cupidatat et commodo magna sit dolor duis eu sit commodo ipsum. Laboris qui ut cillum incididunt id amet tempor dolor qui officia officia deserunt esse. Velit velit elit proident amet enim ea ullamco nisi sit commodo quis esse non nulla. Excepteur cupidatat duis tempor consectetur adipisicing quis in ut velit cillum reprehenderit. Commodo et magna ullamco voluptate.\r\n",
                             Age = 21,
                             Company = "CORIANDER",
@@ -3210,7 +3210,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 111,
+                            CustomerId = 111,
                             About = "Aute aliqua veniam officia sint excepteur fugiat ea. Enim cupidatat fugiat exercitation ut pariatur enim dolore. Dolore fugiat eiusmod aliquip id sunt minim dolor qui ullamco ad anim. Amet aliqua aliqua minim Lorem anim culpa fugiat deserunt sit tempor id non amet consequat. Laborum magna quis minim ea cillum enim consectetur mollit irure enim.\r\n",
                             Age = 22,
                             Company = "MUSIX",
@@ -3228,7 +3228,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 112,
+                            CustomerId = 112,
                             About = "Mollit minim exercitation dolore eu. In qui culpa sunt pariatur ullamco ullamco irure. Enim pariatur pariatur aliqua magna officia in dolore eu ullamco ullamco exercitation. Magna voluptate ad et pariatur eiusmod id eu cillum anim sit voluptate nulla esse proident. Aute sit et excepteur fugiat consequat elit duis aliqua officia quis tempor duis. Elit mollit et consectetur dolore sunt nisi reprehenderit enim irure sunt veniam velit enim. Veniam sit ut minim tempor nostrud et fugiat aliquip nisi excepteur.\r\n",
                             Age = 40,
                             Company = "RECRISYS",
@@ -3246,7 +3246,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 113,
+                            CustomerId = 113,
                             About = "Officia sunt ad dolore in amet cupidatat magna culpa aliquip. Duis irure incididunt ad non ea commodo minim in quis deserunt do sint aute ex. Nisi excepteur veniam eiusmod exercitation consectetur mollit. Cillum consectetur sit id veniam consequat anim qui amet veniam nostrud. In reprehenderit proident proident non. Incididunt consequat quis non magna irure anim officia aliqua fugiat dolore laborum ad consequat enim. Eiusmod non sint aliquip ex magna anim mollit.\r\n",
                             Age = 39,
                             Company = "TWIGGERY",
@@ -3264,7 +3264,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 114,
+                            CustomerId = 114,
                             About = "Mollit ex proident in laborum aliquip voluptate ipsum magna cupidatat. Exercitation ullamco esse nisi amet pariatur esse adipisicing laboris sunt. Consectetur do ipsum dolore adipisicing exercitation veniam ea in qui ut.\r\n",
                             Age = 29,
                             Company = "MACRONAUT",
@@ -3282,7 +3282,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 115,
+                            CustomerId = 115,
                             About = "Velit irure do cupidatat dolore ut voluptate deserunt occaecat labore incididunt proident enim. Commodo ad eiusmod aliqua officia minim nisi nulla occaecat magna laboris tempor dolore amet enim. Irure elit irure qui eu commodo culpa magna occaecat cupidatat ex. Mollit sint exercitation duis in excepteur ad Lorem enim elit. Qui minim nulla id quis.\r\n",
                             Age = 22,
                             Company = "SLAMBDA",
@@ -3300,7 +3300,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 116,
+                            CustomerId = 116,
                             About = "Est culpa consectetur enim duis. Incididunt nostrud non ut anim consequat duis. Sunt enim ea exercitation tempor mollit ut sit. Proident aute nisi eu ex laborum eiusmod in amet officia proident aliqua duis velit velit.\r\n",
                             Age = 23,
                             Company = "ZILLACON",
@@ -3318,7 +3318,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 117,
+                            CustomerId = 117,
                             About = "In pariatur cillum dolore sunt excepteur est eiusmod duis. Est et esse laboris consequat duis nisi aliquip. Pariatur et ullamco deserunt culpa aliqua sint voluptate dolore. Minim ut quis do ullamco ea ipsum. Sit ullamco do velit nulla quis nulla deserunt commodo id. Amet mollit excepteur anim labore nostrud ullamco est voluptate sit esse elit culpa. Officia Lorem incididunt velit non exercitation deserunt sit adipisicing ullamco culpa dolor est nisi esse.\r\n",
                             Age = 40,
                             Company = "ZILLAN",
@@ -3336,7 +3336,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 118,
+                            CustomerId = 118,
                             About = "Adipisicing sunt laborum ullamco voluptate amet pariatur occaecat id ipsum mollit in exercitation. Proident et mollit consectetur mollit culpa sunt nisi in. Ipsum velit in fugiat deserunt. Velit elit aliquip commodo proident consequat reprehenderit. Commodo ut cupidatat labore cillum duis officia et amet. Id magna commodo tempor qui voluptate qui reprehenderit.\r\n",
                             Age = 23,
                             Company = "REALYSIS",
@@ -3354,7 +3354,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 119,
+                            CustomerId = 119,
                             About = "Ad duis labore eu excepteur officia consequat deserunt incididunt velit cillum ex elit. Ad sint consequat laboris id aute enim velit amet ullamco sit magna est. Est enim do do labore nostrud enim aliquip culpa excepteur adipisicing ad amet consequat. Anim fugiat sunt voluptate id. Proident ullamco sit nulla aute.\r\n",
                             Age = 39,
                             Company = "DIGIRANG",
@@ -3372,7 +3372,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 120,
+                            CustomerId = 120,
                             About = "Excepteur esse ut est fugiat proident incididunt. Non eu magna dolore esse exercitation aliqua sunt irure deserunt aute dolor sint excepteur velit. Culpa eiusmod exercitation ullamco voluptate laboris tempor in tempor.\r\n",
                             Age = 33,
                             Company = "ZBOO",
@@ -3390,7 +3390,7 @@ namespace CustomerApi.Data.Migrations
                         },
                         new
                         {
-                            Customerid = 121,
+                            CustomerId = 121,
                             About = "Labore sit et ut eu velit fugiat duis labore non nisi. Mollit amet commodo laboris officia duis est Lorem voluptate ut consequat excepteur. Sint deserunt veniam consectetur ut ea ut nisi.\r\n",
                             Age = 31,
                             Company = "ENERSOL",

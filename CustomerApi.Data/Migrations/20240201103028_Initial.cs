@@ -16,7 +16,7 @@ namespace CustomerApi.Data.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    Customerid = table.Column<int>(type: "int", nullable: false)
+                    CustomerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     _Id = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Index = table.Column<int>(type: "int", nullable: false),
@@ -35,7 +35,7 @@ namespace CustomerApi.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.Customerid);
+                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,13 +56,13 @@ namespace CustomerApi.Data.Migrations
                         name: "FK_Addresses_Customers_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Customers",
-                        principalColumn: "Customerid",
+                        principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "Customerid", "About", "Age", "Company", "Email", "EyeColor", "Gender", "Index", "Latitude", "Longitude", "Name", "Phone", "Registered", "Tags", "_Id" },
+                columns: new[] { "CustomerId", "About", "Age", "Company", "Email", "EyeColor", "Gender", "Index", "Latitude", "Longitude", "Name", "Phone", "Registered", "Tags", "_Id" },
                 values: new object[,]
                 {
                     { 1, "Cillum elit officia minim amet. Incididunt nulla tempor ad dolore. Anim anim reprehenderit mollit occaecat irure laborum aute sint aute aliqua incididunt ad cillum id. Eu irure nulla sit officia eiusmod et anim consectetur exercitation velit.\r\n", 38, "SPORTAN", "caingoodman@sportan.com", "green", "male", 0, 39.783864999999999, -32.813122, "Cain Goodman", "+1 (993) 518-3772", "2014-10-09T12:50:52 -06:-30", "[\"fugiat\",\"nulla\",\"adipisicing\",\"nulla\",\"do\",\"officia\",\"consectetur\"]", "5aa252be5d1e07697b16d463" },

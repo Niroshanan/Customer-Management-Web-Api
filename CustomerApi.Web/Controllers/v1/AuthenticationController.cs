@@ -1,6 +1,8 @@
 ﻿using Asp.Versioning;
 using Azure;
 using CustomerApi.Application.DTOs;
+using CustomerApi.Application.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -51,6 +53,10 @@ namespace CustomerApi.Web.Controllers.v1
             var result = await _userManager.CreateAsync(user, registerDto.Password);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+            if (await _roleManager.RoleExistsAsync(SD.USER_ROLE))
+            {
+                await _userManager.AddToRoleAsync(user, SD.USER_ROLE);
+            }
             return Ok(new ResponseDto { Status = "Success", Message = "User created successfully!" });
         }
 
@@ -79,7 +85,7 @@ namespace CustomerApi.Web.Controllers.v1
                                   expires: DateTime.Now.AddHours(3),
                                   claims: authClaims,
                                   signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                                                                                                                                      );
+                                  );
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
@@ -87,6 +93,32 @@ namespace CustomerApi.Web.Controllers.v1
                 });
             }
             return Unauthorized();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = SD.ADMIN_ROLE)]
+        [Route("RegisterAdmin")]
+        public async Task<IActionResult> RegisterAdmin([FromBody] RegisterDto model)
+        {
+            var userExists = await _userManager.FindByNameAsync(model.UserName);
+            if (userExists != null)
+                return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto { Status = "Error", Message = "User already exists!" });
+            IdentityUser user = new IdentityUser()
+            {
+                Email = model.Email,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = model.UserName
+            };
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
+                return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDto { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+
+
+            if (await _roleManager.RoleExistsAsync(SD.ADMIN_ROLE))
+            {
+                await _userManager.AddToRoleAsync(user, SD.ADMIN_ROLE);
+            }
+            return Ok(new ResponseDto { Status = "Success", Message = "User created successfully!" });
         }
 
         //Logout

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace CustomerApi.Data.Data
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+        
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -64,6 +66,30 @@ namespace CustomerApi.Data.Data
 
                     customerId++;
                 }
+            }
+        }
+        public async Task InitializeAsync()
+        {
+            await CreateRolesAsync();
+        }
+
+        private async Task CreateRolesAsync()
+        {
+            var roleManager = this.GetService<RoleManager<IdentityRole>>();
+
+            if (roleManager == null)
+            {
+                throw new InvalidOperationException("RoleManager<IdentityRole> is null. Check if it's registered in the DI container.");
+            }
+
+            if (!await roleManager.RoleExistsAsync("Admin"))
+            {
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            if (!await roleManager.RoleExistsAsync("User"))
+            {
+                await roleManager.CreateAsync(new IdentityRole("User"));
             }
         }
     }

@@ -32,7 +32,8 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy
-                .WithOrigins("http://192.168.8.152:5500")
+                //.WithOrigins("http://192.168.8.152:5500")
+                .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials();
@@ -99,6 +100,12 @@ if (app.Environment.IsDevelopment())
             options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"Customer API - {description.GroupName.ToUpper()}");
         }
     });
+}
+// Initialize the database
+using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await dbContext.InitializeAsync();
 }
 app.UseCors();
 app.UseHttpsRedirection();

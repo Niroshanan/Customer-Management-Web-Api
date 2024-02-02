@@ -2,6 +2,7 @@
 using Asp.Versioning;
 using CustomerApi.Application.DTOs;
 using CustomerApi.Application.Services.Interfaces;
+using CustomerApi.Application.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CustomerApi.Web.Controllers.v1
 {
     [EnableCors]
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [Route("api/[controller]")]
@@ -22,7 +24,7 @@ namespace CustomerApi.Web.Controllers.v1
             _customerServices = customerServices;
         }
         //get all customers
-        [Authorize]
+        [Authorize(Roles =SD.ADMIN_ROLE)]
         [HttpGet]
         [Route("GetAllCustomers")]
         public async Task<IActionResult> GetAllCustomers()
@@ -79,7 +81,7 @@ namespace CustomerApi.Web.Controllers.v1
                 {
                     return BadRequest($"Error :Customer with id = {customerEditDto.CustomerId} not updated");
                 }
-                return Ok($"Customer with Id = {customerEditDto.CustomerId} updated successfully");
+                return Ok(new ResponseDto { Status = "Success" , Message = $"Customer with Id = {customerEditDto.CustomerId} updated successfully" });
             }
             catch (Exception ex)
             {
@@ -100,7 +102,7 @@ namespace CustomerApi.Web.Controllers.v1
                     return NotFound($"Error :Customer with id = {id} not found");
                 }
                 double distance = await _customerServices.GetDistanceAsync(id, cordinateDto);
-                return Ok($"Distance of customer with id = {id} from given latitude and longitude is {distance:F2} km");
+                return Ok(new ResponseDto { Status = "Success", Message = $"Distance of customer with id = {id} from given latitude and longitude is {distance:F2} km" });
             }
             catch (Exception ex)
             {

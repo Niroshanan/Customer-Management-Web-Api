@@ -1,12 +1,18 @@
+
+using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
 using CustomerApi.Application.Services.Implementations;
 using CustomerApi.Application.Services.Interfaces;
 using CustomerApi.Data.Data;
 using CustomerApi.Data.Repositories.Implementation;
 using CustomerApi.Data.Repositories.Interfaces;
+using CustomerApi.Web.SwaggerConfig;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +22,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.DocumentFilter<SwaggerDocumentFilter>();
+});
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -57,16 +66,39 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = false
     };
 });
+
+
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerConfigOptions>();
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+}
+)
+    .AddApiExplorer(options =>
+    {
+        options.SubstituteApiVersionInUrl = true;
+    });
+
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 
 var app = builder.Build();
 
+var versionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        foreach (var description in versionDescriptionProvider.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"Customer API - {description.GroupName.ToUpper()}");
+        }
+    });
 }
 app.UseCors();
 app.UseHttpsRedirection();

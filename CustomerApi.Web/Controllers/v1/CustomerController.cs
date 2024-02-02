@@ -1,4 +1,6 @@
-﻿using CustomerApi.Application.DTOs;
+﻿
+using Asp.Versioning;
+using CustomerApi.Application.DTOs;
 using CustomerApi.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -7,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace CustomerApi.Web.Controllers.v1
 {
     [EnableCors]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase

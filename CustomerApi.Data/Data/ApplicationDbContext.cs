@@ -67,10 +67,42 @@ namespace CustomerApi.Data.Data
                     customerId++;
                 }
             }
+            SeedRolesAndAdminUser(modelBuilder);
         }
+
         public async Task InitializeAsync()
         {
             await CreateRolesAsync();
+        }
+        private void SeedRolesAndAdminUser(ModelBuilder modelBuilder)
+        {
+            // Seed roles
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+                new IdentityRole { Id = "2", Name = "User", NormalizedName = "USER" }
+            );
+
+            // Seed admin user
+            var adminUser = new IdentityUser
+            {
+                Id = "1",
+                UserName = "admin@example.com",
+                NormalizedUserName = "ADMIN@EXAMPLE.COM",
+                Email = "admin@example.com",
+                NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                EmailConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString("D")
+            };
+
+            var passwordHasher = new PasswordHasher<IdentityUser>();
+            adminUser.PasswordHash = passwordHasher.HashPassword(adminUser, "YourAdminPasswordHere");
+
+            modelBuilder.Entity<IdentityUser>().HasData(adminUser);
+
+            // Assign admin role to admin user
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string> { UserId = adminUser.Id, RoleId = "1" }
+            );
         }
 
         private async Task CreateRolesAsync()

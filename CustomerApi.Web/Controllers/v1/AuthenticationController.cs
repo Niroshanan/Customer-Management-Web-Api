@@ -92,7 +92,7 @@ namespace CustomerApi.Web.Controllers.v1
                     expiration = token.ValidTo
                 });
             }
-            return Unauthorized();
+            return Unauthorized(new ResponseDto { Status = "faild", Message = "Invaid User Name" });
         }
 
         [HttpPost]

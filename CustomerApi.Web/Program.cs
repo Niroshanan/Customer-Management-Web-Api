@@ -112,12 +112,7 @@ if (app.Environment.IsDevelopment())
         }
     });
 }
-// Initialize the database
-using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await dbContext.InitializeAsync();
-}
+
 app.UseCors();
 app.UseHttpsRedirection();
 

@@ -23,7 +23,7 @@ namespace CustomerApi.Web.Controllers.v1
         {
             _customerServices = customerServices;
         }
-        //get all customers
+        //get all customers endpoint
         [Authorize(Roles =SD.ADMIN_ROLE)]
         [HttpGet]
         [Route("GetAllCustomers")]
@@ -44,7 +44,7 @@ namespace CustomerApi.Web.Controllers.v1
             }
         }
 
-        //get customer by id
+        //get customer by id endpoint
         [HttpGet]
         [Route("GetCustomer/{id}")]
         public async Task<IActionResult> GetCustomer(int id)
@@ -64,7 +64,7 @@ namespace CustomerApi.Web.Controllers.v1
             }
         }
 
-        //update customerEditDto using id
+        //update customerEditDto using id endpoint
         [HttpPut]
         [Route("UpdateCustomer")]
         public async Task<IActionResult> UpdateCustomer(CustomerEditDto customerEditDto)
@@ -89,7 +89,7 @@ namespace CustomerApi.Web.Controllers.v1
             }
         }
 
-        //getdistance of a customer using id, latitude and longitude as parameters
+        //getdistance of a customer using id, latitude and longitude as parameters endpoint
         [HttpGet]
         [Route("GetDistance/{id}")]
         public async Task<IActionResult> GetDistance(int id, [FromQuery] CordinateDto cordinateDto)
@@ -110,7 +110,7 @@ namespace CustomerApi.Web.Controllers.v1
             }
         }
 
-        //Search customers for a given string
+        //Search customers for a given string endpoint
         [HttpGet]
         [Route("SearchCustomer/{searchString}")]
         public async Task<IActionResult> SearchCustomer(string searchString)

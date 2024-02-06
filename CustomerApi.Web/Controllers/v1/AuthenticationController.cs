@@ -82,17 +82,18 @@ namespace CustomerApi.Web.Controllers.v1
                 var token = new JwtSecurityToken(
                                   issuer: _configuration["JWT:ValidIssuer"],
                                   audience: _configuration["JWT:ValidAudience"],
-                                  expires: DateTime.Now.AddHours(3),
+                                  expires: DateTime.Now.AddMinutes(60),
                                   claims: authClaims,
                                   signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                                   );
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    expiration = token.ValidTo,
+                    userRole = userRoles
                 });
             }
-            return Unauthorized(new ResponseDto { Status = "faild", Message = "Invaid User Name" });
+            return Unauthorized(new ResponseDto { Status = "failed", Message = "Invaid User Name Or Password" });
         }
 
         [HttpPost]

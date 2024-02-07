@@ -14,6 +14,7 @@ namespace CustomerApi.Application.Helpers
         public ApplicationMapper()
         {
             CreateMap<Customer,CustomerEditDto>().ReverseMap();
+            CreateMap<Customer, CustomerDetailDto>().ReverseMap();
         }
     }
 }

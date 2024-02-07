@@ -4,11 +4,6 @@ using CustomerApi.Application.Helpers;
 using CustomerApi.Application.Services.Interfaces;
 using CustomerApi.Data.Entities;
 using CustomerApi.Data.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomerApi.Application.Services.Implementations
 {

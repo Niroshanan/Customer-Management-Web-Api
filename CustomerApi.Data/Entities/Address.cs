@@ -23,6 +23,7 @@ namespace CustomerApi.Data.Entities
         [JsonPropertyName("zipcode")]
         public int Zipcode { get; set; }
 
+        [JsonIgnore]
         public virtual Customer Customer { get; set; }
     }
 }

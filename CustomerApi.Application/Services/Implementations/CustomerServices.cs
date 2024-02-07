@@ -1,4 +1,5 @@
 ﻿using CustomerApi.Application.DTOs;
+using CustomerApi.Application.Helpers;
 using CustomerApi.Application.Services.Interfaces;
 using CustomerApi.Data.Entities;
 using CustomerApi.Data.Repositories.Interfaces;
@@ -16,16 +17,18 @@ namespace CustomerApi.Application.Services.Implementations
         public CustomerServices(ICustomerRepository customerRepository) { 
             _customerRepository = customerRepository;
         }
-        public Task<IEnumerable<Customer>> GetCustomersAsync()
+
+
+        public async Task<IEnumerable<Customer>> GetCustomersAsync()
         {
-            return _customerRepository.GetCustomersAsync();
+            return await _customerRepository.GetCustomersAsync();
         }
         public Task<Customer> GetCustomerAsync(int id)
         {
             return _customerRepository.GetCustomerAsync(id);
         }
 
-        public Task<bool> UpdateCustomerAsync(int id,CustomerEditDto customerEditDto)
+        public async Task<bool> UpdateCustomerAsync(int id,CustomerEditDto customerEditDto)
         {
             Customer customerToUpdate = _customerRepository.GetCustomerAsync(id).Result;
             if(customerEditDto.Name != null)
@@ -40,12 +43,52 @@ namespace CustomerApi.Application.Services.Implementations
             {
                 customerToUpdate.Phone = customerEditDto.Phone;
             }
-            return _customerRepository.UpdateCustomerAsync(customerToUpdate);
+            return await _customerRepository.UpdateCustomerAsync(customerToUpdate);
 
         }
         public Task<bool> DeleteCustomerAsync(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<double> GetDistanceAsync(int id, CordinateDto cordinateDto)
+        {
+            Customer customer =  _customerRepository.GetCustomerAsync(id).Result;
+            double distance = DistanceCalculator.CalculateDistance(customer,cordinateDto);
+            return distance;
+        }
+
+        public async Task<IEnumerable<Customer>> SearchCustomerAsync(string searchStr)
+        {
+            List<Customer> searchedCustomers = _customerRepository.GetCustomersAsync().Result
+                .Where(c => 
+                c.EyeColor.Contains(searchStr)||
+                c.Name.Contains(searchStr)||
+                c.Gender.Contains(searchStr)||
+                c.Company.Contains(searchStr) ||
+                c.Email.Contains(searchStr) ||
+                c.Phone.Contains(searchStr)||
+                c.Address.Street.Contains(searchStr)||
+                c.Address.City.Contains(searchStr)||
+                c.Address.State.Contains(searchStr)||
+                c.Address.Zipcode.ToString().Contains(searchStr)||
+                c.About.Contains(searchStr)||
+                c.Tags.Contains(searchStr)                
+                )
+                .ToList();
+            return searchedCustomers;
+        }
+
+        public async Task<IEnumerable<CustomerGroupDto>> GetCustomerListByZipCodeAsync()
+        {
+            var customersListByZipCode =  await _customerRepository.GetCustomerListByZipCodeAsync();
+            var result = customersListByZipCode.Select(group => new CustomerGroupDto
+            {
+                ZipCode = group.Key,
+                Customers = group.ToList()
+            });
+            return result;
+            
         }
     }
 }

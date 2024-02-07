@@ -18,26 +18,32 @@ namespace CustomerApi.Data.Repositories.Implementation
             _db = db;
         }
 
-        public Task<IEnumerable<Customer>> GetCustomersAsync()
+        public async Task<IEnumerable<Customer>> GetCustomersAsync()
         {
-            List<Customer> customers = _db.Customers.ToList();
-            return Task.FromResult<IEnumerable<Customer>>(customers);
+            List<Customer> customers = await _db.Customers.Include(c => c.Address).ToListAsync();
+            return customers;
         }
 
-        public Task<Customer> GetCustomerAsync(int id)
+        public async Task<Customer> GetCustomerAsync(int id)
         {
-            Customer customer = _db.Customers.Find(id);
-            return Task.FromResult<Customer>(customer);
+            Customer customer = await _db.Customers.Include(c => c.Address).FirstOrDefaultAsync(c => c.CustomerId == id);
+            return customer;
         }
 
-        public Task<bool> UpdateCustomerAsync(Customer customer)
+        public async Task<bool> UpdateCustomerAsync(Customer customer)
         {
             _db.Customers.Update(customer);
-            return Task.FromResult<bool>(_db.SaveChanges() > 0);
+            return await Task.FromResult<bool>(await  _db.SaveChangesAsync() > 0);
         }
-        public Task<bool> DeleteCustomerAsync(int id)
+        public async Task<IEnumerable<IGrouping<int, Customer>>> GetCustomerListByZipCodeAsync()
         {
-            throw new NotImplementedException();
+            var customersGrouped =  await _db.Customers
+                .Include(c => c.Address)
+                .GroupBy(c => c.Address.Zipcode)
+                .ToListAsync(); ;
+
+            return customersGrouped;
         }
+
     }
 }

@@ -9,7 +9,7 @@ namespace CustomerApi.Data.Entities
 {
     public class Customer
     {
-        public int Customerid { get; set; }
+        public int CustomerId { get; set; }
         [JsonPropertyName("_id")]
         public string _Id { get; set; }
         [JsonPropertyName("index")]

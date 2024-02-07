@@ -1,6 +1,7 @@
 
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using CustomerApi.Application.Helpers;
 using CustomerApi.Application.Services.Implementations;
 using CustomerApi.Application.Services.Interfaces;
 using CustomerApi.Data.Data;
@@ -65,7 +66,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyHeader();
         });
 });
-
+builder.Services.AddAutoMapper(typeof(ApplicationMapper));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

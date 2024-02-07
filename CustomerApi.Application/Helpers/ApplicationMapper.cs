@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using CustomerApi.Application.DTOs;
 using CustomerApi.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomerApi.Application.Helpers
 {
@@ -14,6 +9,7 @@ namespace CustomerApi.Application.Helpers
         public ApplicationMapper()
         {
             CreateMap<Customer,CustomerEditDto>().ReverseMap();
+            CreateMap<Customer, CustomerDetailDto>().ReverseMap();
         }
     }
 }
